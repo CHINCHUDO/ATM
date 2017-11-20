@@ -23,5 +23,19 @@ namespace ATM.UnitTest
             user.CheckingAccount.Balance = 500.0;
             Assert.AreEqual(user.CheckingAccount.Balance, 500.0);
         }
+
+        [TestMethod]
+        public void User_Should_Be_Able_To_Transfer_From_Savings_To_Checking()
+        {
+            var user = new User();
+            user.SavingsAccount.Balance = 100.0;
+            user.CheckingAccount.Balance = 500.0;
+
+            user.SavingsAccount.TransferTo(user.CheckingAccount, 50.0);
+
+
+            Assert.AreEqual(user.CheckingAccount.Balance, 550.0);
+            Assert.AreEqual(user.SavingsAccount.Balance, 50.0);
+        }
     }
 }

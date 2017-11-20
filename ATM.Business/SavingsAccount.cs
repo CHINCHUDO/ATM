@@ -8,6 +8,10 @@ namespace ATM.Business
 {
     public class SavingsAccount : Account
     {
-        
+        public void TransferTo(CheckingAccount checkingAccount, double transferredMoney)
+        {
+            Balance -= transferredMoney;
+            checkingAccount.Balance += transferredMoney;
+        }
     }
 }
