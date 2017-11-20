@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ATM.Business
 {
-    public class Class1
+    public class SavingsAccount : Account
     {
+        
     }
 }
