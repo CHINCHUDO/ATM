@@ -49,5 +49,15 @@ namespace ATM.UnitTest
 
             Assert.IsTrue(user.SavingsAccount.BalanceWarning);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(WithdrawUpTo500Exception))]
+        public void User_Needs_To_Be_Able_To_Withdraw_Up_To_500_From_Checking_Account()
+        {
+            var user = new User();
+            user.CheckingAccount.Balance = 1000.0;
+
+            user.CheckingAccount.Withdraw(600.0);
+        }
     }
 }
