@@ -11,8 +11,8 @@ namespace ATM.Business
 
         public void TransferTo(CheckingAccount checkingAccount, double transferredMoney)
         {
-            Balance -= transferredMoney;
-            checkingAccount.Balance += transferredMoney;
+            Withdraw(transferredMoney);
+            checkingAccount.Deposit(transferredMoney);
         }
     }
 }
