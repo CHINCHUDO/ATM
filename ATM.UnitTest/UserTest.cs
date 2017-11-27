@@ -45,7 +45,7 @@ namespace ATM.UnitTest
 
             Assert.IsFalse(user.SavingsAccount.BalanceWarning);
 
-            user.SavingsAccount.Deposit(300.0);
+            user.SavingsAccount.Withdraw(300.0);
 
             Assert.IsTrue(user.SavingsAccount.BalanceWarning);
         }
@@ -58,6 +58,26 @@ namespace ATM.UnitTest
             user.CheckingAccount.Deposit(1000.0);
 
             user.CheckingAccount.Withdraw(600.0);
+
+            Assert.AreEqual(user.CheckingAccount.Balance, 400.0);
+        }
+
+        [TestMethod]
+        public void Logged_In_User_Needs_To_Be_Able_To_Deposit_Money_To_Checking()
+        {
+            var user = new User();
+            user.CheckingAccount.Deposit(500.0);
+            user.CheckingAccount.Deposit(50.0);
+            Assert.AreEqual(user.CheckingAccount.Balance, 550.0);
+        }
+
+        [TestMethod]
+        public void Logged_In_User_Needs_To_Be_Able_To_Deposit_Money_To_Savings()
+        {
+            var user = new User();
+            user.SavingsAccount.Deposit(500.0);
+            user.SavingsAccount.Deposit(50.0);
+            Assert.AreEqual(user.SavingsAccount.Balance, 550.0);
         }
     }
 }
