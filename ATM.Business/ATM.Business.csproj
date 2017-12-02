@@ -108,9 +108,11 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="CheckingAccount.cs" />
+    <Compile Include="CreditCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavingsAccount.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="ValidateCreditCard.cs" />
     <Compile Include="WithdrawUpTo500Exception.cs" />
     <EmbeddedResource Include="Properties\ATM.Business.rd.xml" />
   </ItemGroup>

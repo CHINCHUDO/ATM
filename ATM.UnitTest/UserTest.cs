@@ -59,5 +59,30 @@ namespace ATM.UnitTest
 
             user.CheckingAccount.Withdraw(600.0);
         }
+
+        //New stuff
+        [TestMethod]
+        public void User_Needs_To_Deposit_Money_To_Checking_Account()
+        {
+            var user = new User();
+            user.CheckingAccount.Deposit(750.0);
+
+            user.CheckingAccount.Deposit(50.0);
+
+            Assert.AreEqual(user.CheckingAccount.Balance, 800.0);
+        }
+
+        [TestMethod]
+        public void User_Can_Withdraw_Money_Using_A_Credit_Card()
+        {
+            var user = new User();
+            //user.CheckingAccount.Deposit(750.0);
+
+            user.CheckingAccount.Withdraw(50.0);
+
+            Assert.AreEqual(user.CheckingAccount.Balance, 700.0);
+        }
+
+
     }
 }
